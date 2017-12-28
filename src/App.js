@@ -7,48 +7,49 @@ class App extends Component {
     super(props);
     this.state = {
       api: {},
-      value: ""
+      value: "",
+      link: "",
+      ready: false
     };
   }
 
   componentWillMount() {
     initApi(api => {
       api.window.startAutoResizer();
-      this.setState({
-        value: api.field.getValue(),
-        api: api
-      });
+      const value = api.field.getValue();
+      if (value && value.sys && value.sys.id) {
+        api.space.getEntry(value.sys.id).then(entry => {
+          console.log(entry);
+          this.setState({
+            api,
+            link: `https://app.contentful.com/spaces/${
+              entry.sys.space.sys.id
+            }/entries/${entry.sys.id}`,
+            ready: true,
+            value: entry.fields.title["en-US"]
+          });
+        });
+      } else {
+        this.setState({
+          api,
+          ready: true
+        });
+      }
     });
   }
 
-  handleClickUpdate = e => {
-    const { api, value } = this.state;
-    api.field.setValue(value);
-  };
-
-  handleChangeValue = e => {
-    this.setState({
-      value: e.target.value
-    });
-  };
-
   render() {
-    const { value } = this.state;
+    const { value, link, ready } = this.state;
+
+    if (!ready) return null;
 
     return (
       <div className="App">
-        <input
-          className="cf-form-input"
-          type="text"
-          value={value}
-          onChange={this.handleChangeValue}
-        />
-        <button
-          className="update-button cf-btn-primary"
-          onClick={this.handleClickUpdate}
-        >
-          Update
-        </button>
+        <span>
+          <a target="_parent" href={link}>
+            {value}
+          </a>
+        </span>
       </div>
     );
   }
