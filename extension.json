@@ -1,6 +1,6 @@
 {
-  "id": "ready-only-entry-link",
-  "name": "Read-Only Entry Link",
+  "id": "ready-only-reference-field",
+  "name": "Read-Only",
   "srcdoc": "./build/index.html",
   "fieldTypes": ["Entry"]
 }

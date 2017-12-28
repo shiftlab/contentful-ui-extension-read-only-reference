@@ -1,4 +1,4 @@
-# Read-Only Entry Link
+# Read-Only Reference Field UI Extension
 
 This project was created with https://github.com/shiftlab/contentful-react-ui-extension.
 
