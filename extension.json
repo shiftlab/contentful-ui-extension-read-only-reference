@@ -1,6 +1,6 @@
 {
-  "id": "backlink",
-  "name": "Backlink",
+  "id": "ready-only-entry-link",
+  "name": "Read-Only Entry Link",
   "srcdoc": "./build/index.html",
   "fieldTypes": ["Entry"]
 }
