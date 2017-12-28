@@ -1,0 +1,6 @@
+{
+  "id": "backlink",
+  "name": "Backlink",
+  "srcdoc": "./build/index.html",
+  "fieldTypes": ["Entry"]
+}
