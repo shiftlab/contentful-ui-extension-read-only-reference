@@ -7,6 +7,8 @@ A Contentful UI Extension for Entry fields, which shows a simple "read-only" lin
 This extension would be used for Relationship fields that are created behind the scenes, perhaps
 automatically via a webhook processor.
 
+![screenshot2](https://user-images.githubusercontent.com/1427475/34423029-62c212ac-ebe7-11e7-848d-b011e19e97c7.png)
+
 ## Setup
 
 Clone this project.
